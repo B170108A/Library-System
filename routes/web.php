@@ -24,5 +24,16 @@ Route::get('/dashboard',[App\Http\Controllers\DashboardController::class,'index'
 //MyProfile
 Route::get('/myprofile',[App\Http\Controllers\MyProfileController::class, 'index'])->name('myprofile');
 
+//Borrow
+Route::get('/borrow',[App\Http\Controllers\BorrowController::class, 'index'])->name('borrow');
+
+//Book
+Route::get('books',[App\Http\Controllers\BooksController::class,'index'])->name('books.index');
+Route::get('books/create',[App\Http\Controllers\BooksController::class,'create'])->name('books.create');
+Route::put('books/store',[App\Http\Controllers\BooksController::class,'store'])->name('books.store');
+Route::put('books/{book}',[App\Http\Controllers\BooksController::class,'update'])->name('books.update');
+Route::get('books/show',[App\Http\Controllers\BooksController::class,'show'])->name('books.show');
+Route::get('books/{book}/edit',[App\Http\Controllers\BooksController::class,'edit'])->name('books.edit');
+Route::delete('books/{book}',[App\Http\Controllers\BooksController::class,'destroy'])->name('books.destroy');
 });
 require __DIR__.'/auth.php';

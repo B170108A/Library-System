@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Books;
+use App\Models\Borrow;
 use Illuminate\Http\Request;
 
-class BooksController extends Controller
+class BorrowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Books::all();
-        return view('books.index',compact('books'));
+        return view('borrow');
     }
 
     /**
@@ -25,7 +24,7 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        //
     }
 
     /**
@@ -36,26 +35,16 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'nameBook' => 'required',
-            'priceBook' => 'required|integer',
-            'skuBook' => 'required',
-            'descriptionBook' => 'required',
-            'quantityBook' => 'required',
-            'purchaseDateAsset' =>'required',
-            'publisherBook' => 'required',
-        ]);
-        Books::create($data);
-        return redirect()->route('books.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Books  $books
+     * @param  \App\Models\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function show(Books $books)
+    public function show(Borrow $borrow)
     {
         //
     }
@@ -63,22 +52,22 @@ class BooksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Books  $books
+     * @param  \App\Models\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function edit(Books $books)
+    public function edit(Borrow $borrow)
     {
-        return view('books.edit',['book'=> $books]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Books  $books
+     * @param  \App\Models\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Books $books)
+    public function update(Request $request, Borrow $borrow)
     {
         //
     }
@@ -86,10 +75,10 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Books  $books
+     * @param  \App\Models\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Books $books)
+    public function destroy(Borrow $borrow)
     {
         //
     }
