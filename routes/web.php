@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware'=>['auth']],function(){
+//Dashbboard
+Route::get('/dashboard',[App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
 
+//MyProfile
+Route::get('/myprofile',[App\Http\Controllers\MyProfileController::class, 'index'])->name('myprofile');
+
+});
 require __DIR__.'/auth.php';
