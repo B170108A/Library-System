@@ -15,12 +15,30 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                <!--ADMIN SITE-->
+                @if (Auth::user()->hasRole('admin'))
                     <x-nav-link :href="route('books.index')" :active="request()->routeIs('books')">
                         {{ __('Add Books') }}
                     </x-nav-link>
                     <x-nav-link :href="route('myprofile')" :active="request()->routeIs('myprofile')">
                         {{ __('My Profile') }}
                     </x-nav-link>
+                @endif
+
+                <!--USER SITE-->
+                @if (Auth::user()->hasRole('user'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('userRequest')" :active="request()->routeIs('userRequest.index')">
+                        {{ __('Request') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('checkStatus')" :active="request()->routeIs('status')">
+                        {{ __('Status') }}
+                    </x-nav-link>
+                </div>
+                @endif
+
                 </div>
             </div>
 
