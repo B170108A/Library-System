@@ -57,7 +57,7 @@ class BooksController extends Controller
      */
     public function show(Books $books)
     {
-        //
+        return view('books.show',['book'=> $books]);
     }
 
     /**
@@ -68,6 +68,7 @@ class BooksController extends Controller
      */
     public function edit(Books $books)
     {
+        $books=Books::All();
         return view('books.edit',['book'=> $books]);
     }
 

@@ -30,10 +30,10 @@ Route::get('/borrow',[App\Http\Controllers\BorrowController::class, 'index'])->n
 //Book
 Route::get('books',[App\Http\Controllers\BooksController::class,'index'])->name('books.index');
 Route::get('books/create',[App\Http\Controllers\BooksController::class,'create'])->name('books.create');
-Route::put('books/store',[App\Http\Controllers\BooksController::class,'store'])->name('books.store');
-Route::put('books/{book}',[App\Http\Controllers\BooksController::class,'update'])->name('books.update');
+Route::get('books/store',[App\Http\Controllers\BooksController::class,'store'])->name('books.store');
+Route::get('books/{books}',[App\Http\Controllers\BooksController::class,'update'])->name('books.update');
 Route::get('books/show',[App\Http\Controllers\BooksController::class,'show'])->name('books.show');
-Route::get('books/{book}/edit',[App\Http\Controllers\BooksController::class,'edit'])->name('books.edit');
-Route::delete('books/{book}',[App\Http\Controllers\BooksController::class,'destroy'])->name('books.destroy');
+Route::get('books/{books}/edit',[App\Http\Controllers\BooksController::class,'edit'])->name('books.edit');
+Route::delete('books/{books}',[App\Http\Controllers\BooksController::class,'destroy'])->name('books.destroy');
 });
 require __DIR__.'/auth.php';

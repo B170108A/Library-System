@@ -16,7 +16,7 @@
                     <form method="POST" action="{{-- route('books.update',$book->id) --}}">
                             @csrf
                             @method('PUT')
-
+                            @foreach ($books as $book)
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="grid grid-rows-2 gap-6">
                                     <div>
@@ -55,6 +55,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <div class="flex items-center justify-end mt-4">
                                 <x-button class="ml-3">
                                     {{ __('Update this Books') }}
